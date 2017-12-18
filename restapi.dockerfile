@@ -14,6 +14,5 @@ RUN npm install
 
 # Bundle app source
 COPY ./app  .
-# RUN chmod +rx ./wait-for-mongo.sh
 
 CMD [ "npm", "start" ]

@@ -8,27 +8,24 @@ services:
   mongo:
     build:
       context: ./mongo
-      dockerfile: mongo3.dockerfile
-    image: mongo:v1.2
+      dockerfile: mongo.dockerfile
+    image: mongo:final
     volumes:
       - mongostorage:/data/db
     env_file: 
       - ./.env
-      - ./mongo/env/mongo3.env
     ports:
       - "27017:27017"
 
   restapi:
     depends_on:
       - mongo
-    # command: ["./wait-for-mongo.sh", "mongo", "npm", "start"]
     build: 
       context: .
       dockerfile: restapi.dockerfile
-    image: restapi:v1.0
+    image: restapi:final
     env_file: 
       - ./.env
-      - ./app/restapi.env
     ports:
       - "3000:3000"
     
