@@ -8,13 +8,13 @@ services:
   mongo:
     build:
       context: ./mongo
-      dockerfile: mongo3.dockerfile
+      dockerfile: mongo2.dockerfile
     image: mongo:v1.2
     volumes:
       - mongostorage:/data/db
     env_file: 
       - ./.env
-      - ./mongo/env/mongo3.env
+      - ./mongo/env/mongo2.env
     ports:
       - "27017:27017"
 
