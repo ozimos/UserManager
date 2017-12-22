@@ -1,7 +1,7 @@
 #!/bin/bash
 set -m
  
-/usr/bin/mongod --auth  &
+mongod --auth  &
  
 if [ ! -f /data/db/.mongodb_password_set ] 
 then
