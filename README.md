@@ -8,18 +8,31 @@ The API is used to manage users in a MongoDB database.
 ### Development
 This application was developed using [ExpressJS](http://expressjs.com/). MongoDB was used for persisting data with [Mongoose](https://mongoosejs.com/) as [ORM](https://en.wikipedia.org/wiki/Object-relational_mapping).
 
-### Installation
+### Installation with Docker Containers
 * Start up your terminal (or Command Prompt on Windows OS).
-* Ensure that you've `node` installed on your PC.
-* Clone the repository by entering the command `git clone https://github.com/andela-bolajide/UserManager` in the terminal.
+* Clone the repository to a local directory.
+* Navigate to the project folder using `cd UserManager` on your terminal (or command prompt)
+* Linux users may either install both docker and docker-compose by running the `install_linux.sh` file in the project root from the terminal as a user with administrator privileges, or they may install by using the instructions below.
+* Visit https://docs.docker.com/engine/installation/ to install the appropriate version of docker for your operating system.
+* Visit https://docs.docker.com/compose/install/ to install the appropriate version of docker-compose for your operating system.
+* Confirm installation of  docker and docker-compose with the commands `docker --version`  and `docker-compose --version` respectively.
+* You may modify the `.env` file in your root directory as described in `.env` file or you may leave the preset values as-is.
+* After this, you can then start the containers by running the command: `docker-compose up` from the terminal in the project root directory as a user with administrator privilege.
+
+### Installation without Docker Containers
+* Start up your terminal (or Command Prompt on Windows OS).
+* Ensure that you have `node` and `mongodb` installed on your PC.
+* Clone the repository to a local directory.
 * Navigate to the project folder using `cd UserManager` on your terminal (or command prompt)
 * After cloning, install the application's dependencies with the command `npm install`.
-* Create a `.env` file in your root directory as described in `.env.sample` file. Variables such as DB_URL (which must be a mongoDB URL) and PORT are defined in the .env file and it is essential you create this file before running the application.
+* Modify the `.env` file in your root directory as described in `.env` file. Variables such as DB_URL (which must be a mongoDB URL) and PORT are defined in the .env file and it is essential you set the values of the variables to match your local setup environment before running the application. You may ignore the variables in the database variables section. They are not required when not using containers.
 ```
 PORT=3000
 DB_URL='mongodb://john:doe@localhost:27017/databaseName'
 ```
-* After this, you can then start the server with the command: `npm start`.
+* Ensure the mongodb service is running.
+* After this, you can then start the server with the command: `npm run start-local`.
+
 
 ### Testing
 To ensure that your installation is successful you'll need to run tests.
